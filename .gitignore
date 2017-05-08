@@ -1,0 +1,9 @@
+# General
+.DS_Store
+
+# Django/Python
+db.sqlite3
+__pycache__
+
+# Cotr specific
+prototyping
