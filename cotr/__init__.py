@@ -7,4 +7,6 @@ def create_app(config_object):
 	
 	return app
 
-app = create_app('config.{}'.format(os.environ.get('APP_SETTINGS', '')))
+app = create_app('config.{}'.format(os.getenv('APP_SETTINGS')))
+
+from cotr.views import *

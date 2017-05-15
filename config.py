@@ -1,5 +1,3 @@
-# Config classes
-
 class Config(object):
 	DEBUG = False
 	TESTING = False
