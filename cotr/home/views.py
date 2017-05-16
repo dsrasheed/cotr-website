@@ -1,6 +1,6 @@
 from flask import request, render_template
-from cotr import app
+from . import home_blueprint
 
-@app.route("/")
+@home_blueprint.route("/")
 def index():
 	return render_template("index.html")

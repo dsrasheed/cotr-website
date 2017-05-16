@@ -1,11 +1,11 @@
 # General
 .DS_Store
 
-# Django/Python
-db.sqlite3
+# Flask/Python
 __pycache__
 *.egg-info
-setup_env.sh
 
 # Cotr specific
 prototyping
+setup_env.sh
+*.db
