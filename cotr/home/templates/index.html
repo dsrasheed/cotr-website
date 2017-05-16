@@ -1,6 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-	<h1>Colors of the Region Event</h1>
-	<h2>Celebrating Diversity in Northwest Indiana</h2>
+<nav>
+</nav>
+<header>
+	<div class="overlay trans-black"></div>
+	<div class="title-cnt">
+		<h1 id="title">Colors of the Region</h1>
+		<!--<h2 id="subtitle">An Event Celebrating Racial Diversity in Northwest Indiana</h2>-->
+	</div>
+	<div id="tri-bottom" class="triangle slant-down"></div>
+</header>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
 {% endblock %}
