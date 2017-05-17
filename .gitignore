@@ -4,8 +4,8 @@
 # Flask/Python
 __pycache__
 *.egg-info
-
-# Cotr specific
-prototyping
-setup_env.sh
 *.db
+
+# Cotr
+prototyping
+.env
