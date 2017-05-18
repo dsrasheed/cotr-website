@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Comfortaa:700|Lato:300');
+@import url('https://fonts.googleapis.com/css?family=Comfortaa:700|Lato:300,700');
 * {
 	box-sizing: border-box;
 	margin: 0;
@@ -10,9 +10,81 @@ html, body {
 }
 nav {
 	width: 100%;
-	height: 100px;
+	height: 130px;
+	padding: 0 10%;
 	position: fixed;
+	color: white;
+	background-color: transparent;
+	z-index: 10;
+	border-bottom: solid 1px rgba(255,255,255,0.6);
+	transition: height 0.3s, background-color 0.3s, color 0.3s;
+}
+ul.menu {
+	position: absolute;
+	list-style-type: none;
+	display: inline-block;
+	left: 50%;
+	transform: translateX(-50%);
+	height: 100%;
+}
+li.menu-element {
+	display: block;
+	float: left;
+	padding: 0 10px;
+	height: 100%;
+	position: relative;
+}
+a.menu-link {
+	display: block;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+	font-family: "Lato";
+	font-weight: 800;
+	font-size: 20px;
+	letter-spacing: 1px;
+	color: inherit;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+li.menu-element:after {
+	content: "";
+	display: block;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 0;
 	background-color: white;
+	transition: height 0.25s;
+}
+li.menu-element:hover:after {
+	height: 3px;
+}
+nav .payp-form {
+	float: right;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+.payp-form {
+	display: table;
+}
+.btn {
+	font-family: "Lato";
+	font-weight: 700;
+	font-size: 20px;
+	padding: 15px 15px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	color: deepskyblue;
+	background-color: transparent;
+	border: solid 3px deepskyblue;
+	transition: color 0.5s, background-color 0.5s;
+}
+.btn:hover {
+	background-color: deepskyblue;
+	color: white;
 }
 header {
 	width: 100%;
@@ -44,14 +116,15 @@ header {
 	position: relative;
 	top: 50%;
 	left: 50%;
-	max-width: 70%;
+	max-width: 60%;
 	transform: translate(-50%,-50%);
 }
 #title {
-	font-family: "Comfortaa";
+	font-family: "Lato";
+	font-weight: 700;
 	font-size: 70px;
+	letter-spacing: 7px;
 	color: white;
-	text-shadow: 0 4px rgb(63, 31, 88);
 	text-align: center;
 	text-transform: uppercase;	
 	margin-bottom: 20px;
@@ -69,5 +142,5 @@ header {
 	height: 100%;
 }
 .trans-black {
-	background-color: rgba(63, 31, 88, 0.6);
+	background-color: rgba(0, 0, 0, 0.6);
 }

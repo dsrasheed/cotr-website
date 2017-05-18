@@ -1,12 +1,28 @@
 (function() {
 	'use strict';
 
-	function resize() {
-		var width = document.body.clientWidth + "px";
-		resize.triangle.style.borderRight = "solid " + width + " white";
+	var nav = document.getElementsByTagName("nav")[0];
+	var scrolled = false;
+
+	function onScroll() {
+		var sTop = document.body.scrollTop;
+		console.log("SCROLL TOP " + sTop);
+		if (sTop > 0 && !scrolled) {
+			nav.style.height = "80px";
+			nav.style.backgroundColor = "white";
+			nav.style.color = "black";
+			nav.style.borderBottom = "none";
+
+			scrolled = true;
+		} else if (sTop <= 0 && scrolled) {
+			nav.style.height = "130px";
+			nav.style.backgroundColor = "transparent";
+			nav.style.color = "white";
+			nav.style.borderBottom = "solid 1px rgba(255,255,255,0.6)";
+
+			scrolled = false;
+		}
 	}
-	resize.triangle = document.getElementById("tri-bottom");
-	
-	resize();
-	addEventListener("resize", resize);
+
+	addEventListener("scroll", onScroll);
 })();
