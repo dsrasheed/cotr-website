@@ -5,3 +5,4 @@ visitors_blueprint = Blueprint(
 	template_folder="templates"
 )
 
+from .views import *
