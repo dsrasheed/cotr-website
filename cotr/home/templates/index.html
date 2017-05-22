@@ -2,7 +2,13 @@
 
 {% block content %}
 <nav>
-	<p style="color: white; float: left">Placeholder</p>
+	<!--
+	LOGO
+	--->
+	
+	<!--------
+	NAVIGATION
+	--------->
 	<ul class="menu">
 		<li class="menu-element"><a class="menu-link" href="#">Schedule</a></li>
 		<li class="menu-element"><a class="menu-link" href="#">Activites</a></li>
@@ -10,20 +16,81 @@
 		<li class="menu-element"><a class="menu-link" href="#">Donate</a></li>
 		<li class="menu-element"><a class="menu-link" href="#">Contact</a></li>
 	</ul>
-	<form class="payp-form" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
+	
+	<!----------
+	GET TICKETS
+	----------->
+	<form class="payp-form nav-form" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
 		<input type="hidden" name="cmd" value="_s-xclick">
 		<input type="hidden" name="hosted_button_id" value="M3WLKBA4W6CNQ">
 		<input type="hidden" name="return" value="{{ request.url_root }}get-tickets/success/"/>
 		<button class="btn form-btn" type="submit" name="submit" alt="PayPal - The safer, easier way to pay online!">Get Tickets</button>
 	</form>
 </nav>
+
 <header>
-	<div class="overlay trans-black"></div>
+	<!----
+	TITLE
+	----->
 	<div class="title-cnt">
-		<h1 id="title">Colors of the Region Event</h1>
+		<h1 id="title">The Colors of the Region</h1>
+		<h2 id="subtitle">Celebrating Racial Diversity in Northwest Indiana</h2>
 	</div>
-	<div id="tri-bottom" class="triangle slant-down"></div>
+		
+	<!----
+	LOTUS
+	----->
+	<div id="blue-lotus" class="lotus">
+		<div class="petal"></div>
+		<div class="petal"></div>
+		<div class="petal"></div>
+		<div class="petal"></div>
+		<div class="petal"></div>
+		<div class="petal"></div>
+		<div class="petal"></div>
+		<div class="petal"></div>
+		<div class="petal"></div>
+		<div class="petal"></div>
+		<div class="petal"></div>
+		<div class="petal"></div>
+		<div class="petal"></div>
+	</div>
+	<div id="green-lotus" class="lotus">
+		<div class="petal"></div>
+		<div class="petal"></div>
+		<div class="petal"></div>
+		<div class="petal"></div>
+		<div class="petal"></div>
+		<div class="petal"></div>
+		<div class="petal"></div>
+		<div class="petal"></div>
+		<div class="petal"></div>
+		<div class="petal"></div>
+		<div class="petal"></div>
+		<div class="petal"></div>
+	</div>
+	<div id="red-lotus" class="lotus">
+		<div class="petal"></div>
+		<div class="petal"></div>
+		<div class="petal"></div>
+		<div class="petal"></div>
+		<div class="petal"></div>
+		<div class="petal"></div>
+		<div class="petal"></div>
+		<div class="petal"></div>
+		<div class="petal"></div>
+		<div class="petal"></div>
+		<div class="petal"></div>
+		<div class="petal"></div>
+	</div>
+
+	<!--------
+	TRIANGLES
+	--------->
+	<div class="triangle tri-left"></div>
+	<div class="triangle tri-right"></div>
 </header>
+
 <div style="width: 100%; height: 2000px"></div>
 
 <script src="{{ url_for('static', filename='js/main.js') }}"></script>
