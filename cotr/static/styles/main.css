@@ -1,22 +1,49 @@
-@import url('https://fonts.googleapis.com/css?family=Comfortaa:700|Lato:300,700');
+@import url('https://fonts.googleapis.com/css?family=Lato:300,700|Sanchez');
 * {
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
 }
+body {
+	min-width: 320px;
+}
 nav {
 	width: 100%;
 	height: 130px;
-	padding: 0 10%;
 	position: fixed;
 	color: white;
 	background-color: transparent;
 	z-index: 10;
 	border-bottom: solid 1px rgba(255,255,255,0.6);
+	box-shadow: 2px 0 10px rgba(0,0,0,0.6);
 	transition: height 0.3s, background-color 0.3s, color 0.3s;
 }
-ul.menu {
+.hamburger {
+	display: none;
 	position: absolute;
+	width: 45px;
+	height: 35px;
+	top: 50%;
+	right: 30px;
+	transform: translateY(-50%);
+}
+.ham-line {
+	width: 100%;
+	height: 5px;
+	background-color: white;
+	border-radius: 50px;
+	margin-bottom: 10px;
+}
+.ham-line:last-child {
+	margin-bottom: 0;
+}
+.nav-container {
+	width: 80%;
+	height: 100%;
+	margin: 0 auto;
+}
+ul.menu {
+	position: relative;
 	list-style-type: none;
 	display: inline-block;
 	left: 50%;
@@ -57,14 +84,15 @@ li.menu-element:after {
 li.menu-element:hover:after {
 	height: 3px;
 }
+.payp-form {
+	display: table;
+}
 .nav-form {
 	float: right;
+	margin: 0 auto;
 	position: relative;
 	top: 50%;
 	transform: translateY(-50%);
-}
-.payp-form {
-	display: table;
 }
 .btn {
 	font-family: "Lato";
@@ -73,13 +101,13 @@ li.menu-element:hover:after {
 	padding: 15px 15px;
 	text-transform: uppercase;
 	letter-spacing: 2px;
-	color: deepskyblue;
+	color: mediumpurple;
 	background-color: transparent;
-	border: solid 3px deepskyblue;
+	border: solid 3px mediumpurple;
 	transition: color 0.5s, background-color 0.5s;
 }
 .btn:hover {
-	background-color: deepskyblue;
+	background-color: mediumpurple;
 	color: white;
 }
 header {
@@ -88,6 +116,7 @@ header {
 	position: relative;
 	background-color: rgb(36, 38, 47);
 	overflow: hidden;
+	transition: min-height 0.25s;
 }
 .title-cnt {
 	position: relative;
@@ -96,7 +125,9 @@ header {
 	max-width: 70%;
 	transform: translate(-50%);
 }
-/* TODO: Make responsive so text doesn't exceed 2 lines */
+#title, #subtitle {
+	transition: font-size 0.25s;
+}
 #title {
 	font-family: "Lato";
 	font-weight: 700;
@@ -105,25 +136,29 @@ header {
 	color: white;
 	text-align: center;
 	text-transform: uppercase;	
-	margin-bottom: 20px;
 	z-index: 1;
 }
 #subtitle {
 	width: 70%;
-	margin: auto;
+	margin: 20px auto 40px auto;
 	font-family: "Lato";
 	font-weight: 300;
 	font-size: 30px;
+	letter-spacing: 1px;
 	color: white;
 	text-align: center;
 }
+.title-form {
+	margin: auto;
+}
 .triangle {
-	z-index: 1;
+	z-index: 2;
 	position: absolute;
 	bottom: 0;
 	width: 0;
 	height: 0;
 	border-bottom: solid 200px white;
+	transition: height 0.25s;
 }
 .tri-left {
 	left: 0;
@@ -140,14 +175,15 @@ header {
 	min-width: 400px;
 	min-height: 400px;
 }
-#blue-lotus {
+#green-lotus {
 	left: 0;
 	bottom: 200px;
 }
-#green-lotus {
+#blue-lotus {
 	left: 50%;
 	bottom: 0;
-	transform: translate(-50%) rotate(-45deg);
+	transform: translate(-50%, -20%) rotate(-45deg);
+	z-index: 1;
 }
 #red-lotus {
 	left: 100%;
@@ -156,16 +192,17 @@ header {
 }
 .petal {
 	position: absolute;
-	width: 400px;
-	height: 400px;
+	width: 0px;
+	height: 0px;
 	border-radius: 100% 0 100% 0;
 	transform-origin: bottom left;
-}
-#blue-lotus .petal {
-	background-color: rgba(0, 180, 255, 0.6);
+	transition: height 0.25s, width 0.25s;
 }
 #green-lotus .petal {
 	background-color: rgba(0, 255, 180, 0.6);
+}
+#blue-lotus .petal {
+	background-color: rgba(0, 180, 255, 0.6);
 }
 #red-lotus .petal {
 	background-color: rgba(255, 50, 0, 0.6);
@@ -205,4 +242,118 @@ header {
 }
 .petal:nth-child(13) {
 	transform: rotate(-90deg);
+}
+section {
+	width: 100%;
+	margin-bottom: 5%;
+}
+.section-content {
+	width: 60%;
+	margin: auto;
+}
+#about {
+	padding-top: 5%;
+}
+h2.section-title {
+	display: inline-block;
+	position: relative;
+	left: 50%;
+	transform: translate(-50%);
+	font-family: "Lato";
+	font-size: 50px;
+	text-align: center;
+	text-transform: uppercase;
+}
+h2.section-title:after {
+	content: "";
+	display: block;
+	width: 100%;
+	height: 2px;
+	background-color: deeppink;
+}
+.about-desc {
+	font-family: "Sanchez";
+	margin-top: 20px;
+	font-size: 20px;
+	line-height: 1.5em;
+	text-align: center;
+}
+/************
+MEDIA QUERIES
+************/
+@media (min-width: 1550px) {
+	header {
+		min-height: 1000px;
+	}
+	#title {
+		font-size: 70px;
+	}
+	#subtitle {
+		font-size: 30px;
+	}
+	.lotus {
+		min-width: 400px;
+		min-height: 400px;
+	}
+	.petal {
+		width: 400px;
+		height: 400px;
+	}
+}
+@media (max-width: 1549px) {
+	.nav-form {
+		display: none;
+	}
+	header {
+		min-height: 900px;
+	}
+	#title {
+		font-size: 50px;
+	}
+	#subtitle {
+		font-size: 20px;
+	}
+	.lotus {
+		min-width: 300px;
+		min-height: 300px;
+	}
+	.petal {
+		width: 300px;
+		height: 300px
+	}
+}
+@media (max-width: 800px) {
+	.hamburger {
+		display: block;
+	}
+	.title-cnt {
+		max-width: 90%;
+	}
+	ul.menu {
+		display: none;
+	}
+	.lotus {
+		min-width: 200px;
+		min-height: 200px;
+	}
+	.petal {
+		width: 200px;
+		height: 200px;
+	}
+}
+@media (max-width: 500px) {
+	.triangle {
+		border-bottom-width: 100px;
+	}
+	#green-lotus, #red-lotus {
+		bottom: 100px;
+	}
+	.lotus {
+		min-width: 150px;
+		min-height: 150px;
+	}
+	.petal {
+		width: 150px;
+		height: 150px;
+	}
 }

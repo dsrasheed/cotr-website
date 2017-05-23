@@ -2,35 +2,49 @@
 
 {% block content %}
 <nav>
-	<!--LOGO-->
+	<!--HAMBURGER-->
+	<div class="hamburger">
+		<div class="ham-line"></div>
+		<div class="ham-line"></div>
+		<div class="ham-line"></div>
+	</div>
 	
-	<!--NAVIGATION-->
-	<ul class="menu">
-		<li class="menu-element"><a class="menu-link" href="#">Schedule</a></li>
-		<li class="menu-element"><a class="menu-link" href="#">Activites</a></li>
-		<li class="menu-element"><a class="menu-link" href="#">Volunteer</a></li>
-		<li class="menu-element"><a class="menu-link" href="#">Donate</a></li>
-		<li class="menu-element"><a class="menu-link" href="#">Contact</a></li>
-	</ul>
+	<div class="nav-container">
+		<!--LOGO-->
 	
-	<!--GET TICKETS-->
-	<form class="payp-form nav-form" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
-		<input type="hidden" name="cmd" value="_s-xclick">
-		<input type="hidden" name="hosted_button_id" value="M3WLKBA4W6CNQ">
-		<input type="hidden" name="return" value="{{ request.url_root }}get-tickets/success/"/>
-		<button class="btn form-btn" type="submit" name="submit" alt="PayPal - The safer, easier way to pay online!">Get Tickets</button>
-	</form>
+		<!--NAVIGATION-->
+		<ul class="menu">
+			<li class="menu-element"><a class="menu-link" href="#">Schedule</a></li>
+			<li class="menu-element"><a class="menu-link" href="#">Activites</a></li>
+			<li class="menu-element"><a class="menu-link" href="#">Volunteer</a></li>
+			<li class="menu-element"><a class="menu-link" href="#">Donate</a></li>
+			<li class="menu-element"><a class="menu-link" href="#">Contact</a></li>
+		</ul>
+	
+		<!--GET TICKETS-->
+		<form class="payp-form nav-form" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
+			<input type="hidden" name="cmd" value="_s-xclick">
+			<input type="hidden" name="hosted_button_id" value="M3WLKBA4W6CNQ">
+			<input type="hidden" name="return" value="{{ request.url_root }}get-tickets/success/"/>
+			<button class="btn form-btn" type="submit" name="submit" alt="PayPal - The safer, easier way to pay online!">Get Tickets</button>
+		</form>
+	</div>
 </nav>
 <header>
 	<!--TITLE-->
 	<div class="title-cnt">
 		<h1 id="title">The Colors of the Region</h1>
-		<h2 id="subtitle">Celebrating Racial Diversity in Northwest Indiana</h2>
+		<p id="subtitle">Celebrating Racial Diversity in Northwest Indiana</p>
+		<form class="payp-form title-form" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
+			<input type="hidden" name="cmd" value="_s-xclick">
+			<input type="hidden" name="hosted_button_id" value="M3WLKBA4W6CNQ">
+			<input type="hidden" name="return" value="{{ request.url_root }}get-tickets/success/"/>
+			<button class="btn form-btn" type="submit" name="submit" alt="PayPal - The safer, easier way to pay online!">Get Tickets</button>
+		</form>
 	</div>
 		
 	<!--LOTUS-->
-	<div id="blue-lotus" class="lotus">
-		<div class="petal"></div>
+	<div id="green-lotus" class="lotus">
 		<div class="petal"></div>
 		<div class="petal"></div>
 		<div class="petal"></div>
@@ -44,7 +58,8 @@
 		<div class="petal"></div>
 		<div class="petal"></div>
 	</div>
-	<div id="green-lotus" class="lotus">
+	<div id="blue-lotus" class="lotus">
+		<div class="petal"></div>
 		<div class="petal"></div>
 		<div class="petal"></div>
 		<div class="petal"></div>
@@ -77,6 +92,16 @@
 	<div class="triangle tri-left"></div>
 	<div class="triangle tri-right"></div>
 </header>
-<div style="width: 100%; height: 2000px"></div>
+<section id="about">
+	<div class="section-content">
+		<h2 class="section-title">About</h2>
+		<p class="about-desc">The Colors of the Region Event is handled by the members of
+		the  05 SLYCE class. Our goal is to raise awareness for the wide divsersity of races
+		in the region through music, food, and other activities. All proceedings from this
+		event will be given to Steel City Academy, a school in Gary dedicated to providing
+		education to those who were born in unfortunate circumstances.</p>
+	</div>
+</section>
+<div style="width: 100%; height: 1000px;"></div>
 <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 {% endblock %}
