@@ -86,7 +86,7 @@ header {
 	width: 100%;
 	min-height: 1000px;
 	position: relative;
-	background-color: black;
+	background-color: rgb(36, 38, 47);
 	overflow: hidden;
 }
 .title-cnt {
