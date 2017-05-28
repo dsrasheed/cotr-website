@@ -270,8 +270,8 @@ h2.section-title {
 }
 .flex-content {
 	display: flex;
-	justify-content: center;
 	flex-wrap: wrap;
+	justify-content: space-between;
 }
 .clock, .schedule-slide {
 	margin-top: 5%;
@@ -295,12 +295,21 @@ h2.section-title {
 	left: 0;
 	position: absolute;
 }
+.clock-bg {
+	width: 105%;
+	height: 105%;
+	border-radius: 50%;
+	position: absolute;
+	top: -2.5%;
+	left: -2.5%;
+	background-color: #c7c7c7;
+}
 .clock-rim {
 	width: 100%;
 	height: 100%;
 	border-radius: 50%;
-	border: solid 10px white;
-	background-color: mediumpurple;
+	background-color: white;
+	position: relative;
 }
 .clock-tick {
 	position: absolute;
@@ -314,10 +323,10 @@ h2.section-title {
 	content: "";
 	display: block;
 	width: 100%;
-	height: 30px;
+	height: 10%;
 	position: absolute;
 	top: 0;
-	background-color: white;
+	background-color: black;
 }
 .clock-tick:nth-child(2) {
 	transform: rotate(30deg);
@@ -354,22 +363,27 @@ h2.section-title {
 }
 .clock-center {
 	position: absolute;
-	width: 30px;
-	height: 30px;
+	width: 5%;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%,-50%);
-	background-color: white;
+	background-color: black;
 	border-radius: 50%;
+}
+.clock-center:after {
+	content: "";
+	display: block;
+	width: 100%;
+	padding-bottom: 100%;
 }
 .hour-hand {
 	position: absolute;
 	bottom: 50%;
 	left: 49.25%;
 	width: 1.5%;
-	height: 25%;
+	height: 15%;
 	transform-origin: 50% 100%;
-	background-color: white;
+	background-color: black;
 	border-radius: 50px;
 }
 .minute-hand {
@@ -377,16 +391,11 @@ h2.section-title {
 	bottom: 50%;
 	left: 49.25%;
 	width: 1.5%;
-	height: 40%;
+	height: 30%;
 	transform-origin: 50% 100%;
-	background-color: white;
+	background-color: black;
 	border-radius: 50px;
-	transform: rotate(180deg);
-	/*animation: rotate-minute 60s ease-out infinite;*/
-}
-@keyframes rotate-minute {
-	from { transform: rotate(0deg); }
-	to { transform: rotate(360deg); }
+	transform: rotate(30deg);
 }
 .schedule-slide {
 	width: 700px;
