@@ -2,141 +2,141 @@
 
 {% block content %}
 <nav>
-	<!--HAMBURGER-->
-	<div class="hamburger">
-		<div class="ham-line"></div>
-		<div class="ham-line"></div>
-		<div class="ham-line"></div>
-	</div>
-	
-	<div class="nav-container">
-		<!--LOGO-->
-	
-		<!--NAVIGATION-->
-		<ul class="menu">
-			<li class="menu-element"><a class="menu-link" href="#">Schedule</a></li>
-			<li class="menu-element"><a class="menu-link" href="#">Activites</a></li>
-			<li class="menu-element"><a class="menu-link" href="#">Donate</a></li>
-			<li class="menu-element"><a class="menu-link" href="#">Contact</a></li>
-		</ul>
-	
-		<!--GET TICKETS-->
-		<form class="payp-form nav-form" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
-			<input type="hidden" name="cmd" value="_s-xclick">
-			<input type="hidden" name="hosted_button_id" value="M3WLKBA4W6CNQ">
-			<input type="hidden" name="return" value="{{ request.url_root }}get-tickets/success/"/>
-			<button class="btn form-btn" type="submit" name="submit" alt="PayPal - The safer, easier way to pay online!">Get Tickets</button>
-		</form>
-	</div>
+    <!--HAMBURGER-->
+    <div class="hamburger">
+        <div class="ham-line"></div>
+        <div class="ham-line"></div>
+        <div class="ham-line"></div>
+    </div>
+    
+    <div class="nav-container">
+        <!--LOGO-->
+    
+        <!--NAVIGATION-->
+        <ul class="menu">
+            <li class="menu-element"><a class="menu-link" href="#">Schedule</a></li>
+            <li class="menu-element"><a class="menu-link" href="#">Activites</a></li>
+            <li class="menu-element"><a class="menu-link" href="#">Donate</a></li>
+            <li class="menu-element"><a class="menu-link" href="#">Contact</a></li>
+        </ul>
+    
+        <!--GET TICKETS-->
+        <form class="payp-form nav-form" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
+            <input type="hidden" name="cmd" value="_s-xclick">
+            <input type="hidden" name="hosted_button_id" value="M3WLKBA4W6CNQ">
+            <input type="hidden" name="return" value="{{ request.url_root }}get-tickets/success/"/>
+            <button class="btn form-btn" type="submit" name="submit" alt="PayPal - The safer, easier way to pay online!">Get Tickets</button>
+        </form>
+    </div>
 </nav>
 <header>
-	<!--TITLE-->
-	<div class="title-cnt">
-		<h1 id="title">The Colors of the Region</h1>
-		<p id="subtitle">Celebrating Racial Diversity in Northwest Indiana</p>
-		<form class="payp-form title-form" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
-			<input type="hidden" name="cmd" value="_s-xclick">
-			<input type="hidden" name="hosted_button_id" value="M3WLKBA4W6CNQ">
-			<input type="hidden" name="return" value="{{ request.url_root }}get-tickets/success/"/>
-			<button class="btn form-btn" type="submit" name="submit" alt="PayPal - The safer, easier way to pay online!">Get Tickets</button>
-		</form>
-	</div>
-		
-	<!--LOTUS-->
-	<div id="green-lotus" class="lotus">
-		<div class="petal"></div>
-		<div class="petal"></div>
-		<div class="petal"></div>
-		<div class="petal"></div>
-		<div class="petal"></div>
-		<div class="petal"></div>
-		<div class="petal"></div>
-		<div class="petal"></div>
-		<div class="petal"></div>
-		<div class="petal"></div>
-		<div class="petal"></div>
-		<div class="petal"></div>
-	</div>
-	<div id="blue-lotus" class="lotus">
-		<div class="petal"></div>
-		<div class="petal"></div>
-		<div class="petal"></div>
-		<div class="petal"></div>
-		<div class="petal"></div>
-		<div class="petal"></div>
-		<div class="petal"></div>
-		<div class="petal"></div>
-		<div class="petal"></div>
-		<div class="petal"></div>
-		<div class="petal"></div>
-		<div class="petal"></div>
-		<div class="petal"></div>
-	</div>
-	<div id="red-lotus" class="lotus">
-		<div class="petal"></div>
-		<div class="petal"></div>
-		<div class="petal"></div>
-		<div class="petal"></div>
-		<div class="petal"></div>
-		<div class="petal"></div>
-		<div class="petal"></div>
-		<div class="petal"></div>
-		<div class="petal"></div>
-		<div class="petal"></div>
-		<div class="petal"></div>
-		<div class="petal"></div>
-	</div>
+    <!--TITLE-->
+    <div class="title-cnt">
+        <h1 id="title">The Colors of the Region</h1>
+        <p id="subtitle">Celebrating Racial Diversity in Northwest Indiana</p>
+        <form class="payp-form title-form" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
+            <input type="hidden" name="cmd" value="_s-xclick">
+            <input type="hidden" name="hosted_button_id" value="M3WLKBA4W6CNQ">
+            <input type="hidden" name="return" value="{{ request.url_root }}get-tickets/success/"/>
+            <button class="btn form-btn" type="submit" name="submit" alt="PayPal - The safer, easier way to pay online!">Get Tickets</button>
+        </form>
+    </div>
+        
+    <!--LOTUS-->
+    <div id="green-lotus" class="lotus">
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+    </div>
+    <div id="blue-lotus" class="lotus">
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+    </div>
+    <div id="red-lotus" class="lotus">
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+    </div>
 
-	<!--TRIANGLES-->
-	<div class="triangle tri-left"></div>
-	<div class="triangle tri-right"></div>
+    <!--TRIANGLES-->
+    <div class="triangle tri-left"></div>
+    <div class="triangle tri-right"></div>
 </header>
 <section id="about">
-	<div class="section-content">
-		<h2 class="section-title">About</h2>
-		<p class="about-info">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-	</div>
+    <div class="section-content">
+        <h2 class="section-title">About</h2>
+        <p class="about-info">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+    </div>
 </section>
 <section id="schedule">
-	<div class="section-content">
-		<h2 class="section-title">Schedule</h2>
-		<div class="flex-content">
-			<div class="clock">
-				<div class="square-content">
-					<div class="clock-bg"></div>
-					<div class="clock-rim">
-						<div class="clock-tick"></div>
-						<div class="clock-tick"></div>
-						<div class="clock-tick"></div>
-						<div class="clock-tick"></div>
-						<div class="clock-tick"></div>
-						<div class="clock-tick"></div>
-						<div class="clock-tick"></div>
-						<div class="clock-tick"></div>
-						<div class="clock-tick"></div>
-						<div class="clock-tick"></div>
-						<div class="clock-tick"></div>
-						<div class="clock-tick"></div>
-						<div class="hour-hand"></div>
-						<div class="minute-hand"></div>
-						<div class="clock-center"></div>
-					</div>
-				</div>
-			</div>
-			
-			<div class="schedule-slide">
-				<div id="left-arrow" class="slide-arrow-cnt"></div>
-				<div class="slide-content">
-					<h3 class="schedule-time"></h3>
-					<p class="schedule-time-info"></p>
-					<div class="slide-indicator">
-						
-					</div>
-				</div>
-				<div id="right-arrow" class="schedule-arrow-cnt"></div>
-			</div>
-		</div>
-	</div>
+    <div class="section-content">
+        <h2 class="section-title">Schedule</h2>
+        <div class="flex-content">
+            <div class="clock">
+                <div class="square-content">
+                    <div class="clock-bg"></div>
+                    <div class="clock-rim">
+                        <div class="clock-tick"></div>
+                        <div class="clock-tick"></div>
+                        <div class="clock-tick"></div>
+                        <div class="clock-tick"></div>
+                        <div class="clock-tick"></div>
+                        <div class="clock-tick"></div>
+                        <div class="clock-tick"></div>
+                        <div class="clock-tick"></div>
+                        <div class="clock-tick"></div>
+                        <div class="clock-tick"></div>
+                        <div class="clock-tick"></div>
+                        <div class="clock-tick"></div>
+                        <div class="hour-hand"></div>
+                        <div class="minute-hand"></div>
+                        <div class="clock-center"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="schedule-slide">
+                <div id="left-arrow" class="slide-arrow-cnt"></div>
+                <div class="slide-content">
+                    <h3 class="schedule-time"></h3>
+                    <p class="schedule-time-info"></p>
+                    <div class="slide-indicator">
+                        
+                    </div>
+                </div>
+                <div id="right-arrow" class="schedule-arrow-cnt"></div>
+            </div>
+        </div>
+    </div>
 </section>
 <div style="width: 100%; height: 1000px;"></div>
 <script src="{{ url_for('static', filename='js/main.js') }}"></script>
