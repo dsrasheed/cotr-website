@@ -309,6 +309,7 @@ h2.section-title {
     height: 100%;
     border-radius: 50%;
     background-color: white;
+    border: solid 10px white;
     position: relative;
 }
 .clock-tick {
@@ -444,6 +445,10 @@ MEDIA QUERIES
     .petal {
         width: 200px;
         height: 200px;
+    }
+    .about-info {
+    	-webkit-column-count: 1;
+    	column-count: 1;
     }
 }
 @media screen and (max-width: 500px) {
