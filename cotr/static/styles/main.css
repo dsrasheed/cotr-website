@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Lato:300,700|Cardo');
+@import url('https://fonts.googleapis.com/css?family=Lato:300,700');
 * {
     box-sizing: border-box;
     margin: 0;
@@ -38,7 +38,7 @@ nav {
     margin-bottom: 0;
 }
 .nav-container {
-    width: 80%;
+    width: 60%;
     height: 100%;
     margin: 0 auto;
 }
@@ -114,7 +114,7 @@ header {
     position: relative;
     top: 160px;
     left: 50%;
-    max-width: 70%;
+    max-width: 60%;
     transform: translate(-50%);
 }
 #title, #subtitle {
@@ -123,7 +123,7 @@ header {
 #title {
     font-family: "Lato";
     font-weight: 700;
-    font-size: 70px;
+    font-size: 80px;
     letter-spacing: 5px;
     color: white;
     text-align: center;
@@ -240,36 +240,35 @@ section {
     padding-top: 5%;
 }
 .section-content {
-    width: 80%;
+    width: 60%;
     margin: auto;
 }
 h2.section-title {
-    display: inline-block;
     position: relative;
     font-family: "Lato";
-    font-size: 50px;
+    font-size: 40px;
+    letter-spacing: 1.5px;
     text-align: center;
     text-transform: uppercase;
 }
 .about-info {
-    font-family: "Cardo";
-    font-size: 1.5em;
-    line-height: 1.5em;
-    column-count: 3;
-    -webkit-column-count: 3;
+    font-family: "Lato";
+    font-size: 20px;
+    line-height: 20px;
     color: gray;
     margin-top: 40px;
+    text-align: center;
 }
 .flex-content {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
 }
 .clock, .schedule-slide {
     margin-top: 5%;
 }
 .clock {
-    width: 600px;
+    width: 400px;
     position: relative;
     margin-right: 5%;
     margin-left: 5%;
@@ -398,6 +397,11 @@ h2.section-title {
 /************
 MEDIA QUERIES
 ************/
+@media screen and (max-width: 2030px) {
+	#title {
+		font-size: 60px;
+	}
+}
 @media screen and (max-width: 1549px) {
     .nav-form {
         display: none;
@@ -427,6 +431,9 @@ MEDIA QUERIES
     .title-cnt {
         max-width: 90%;
     }
+    .section-content {
+    	width: 90%;
+    }
     ul.menu {
         display: none;
     }
@@ -437,10 +444,6 @@ MEDIA QUERIES
     .petal {
         width: 200px;
         height: 200px;
-    }
-    .about-info {
-    	-webkit-column-count: 1;
-    	column-count: 1;
     }
 }
 @media screen and (max-width: 500px) {
