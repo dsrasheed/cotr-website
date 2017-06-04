@@ -46,8 +46,7 @@ ul.menu {
     position: relative;
     list-style-type: none;
     display: inline-block;
-    left: 50%;
-    transform: translateX(-50%);
+    float: right;
     height: 100%;
 }
 li.menu-element {
@@ -86,13 +85,6 @@ li.menu-element:hover:after {
 }
 .payp-form {
     display: table;
-}
-.nav-form {
-    float: right;
-    margin: 0 auto;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
 }
 .btn {
     font-family: "Lato";
