@@ -1,8 +1,8 @@
 import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from .home import home_blueprint
-from .visitors import visitors_blueprint
+from cotr.home import home_blueprint
+from cotr.visitors import visitors_blueprint
 
 db = SQLAlchemy()
 
@@ -18,6 +18,6 @@ def create_app(config_object):
     app.register_blueprint(visitors_blueprint)
 
     return app
-
 app = create_app('config.{}'.format(os.getenv('APP_SETTINGS')))
 
+from cotr.ctx import *
