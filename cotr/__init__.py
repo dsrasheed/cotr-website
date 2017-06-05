@@ -18,7 +18,8 @@ def create_app(config_object):
 
     # Register blueprints
     app.register_blueprint(home_blueprint)
-    app.register_blueprint(visitors_blueprint)
+    app.register_blueprint(visitors_blueprint,
+                           url_prefix="/tickets")
 
     return app
 app = create_app('config.{}'.format(os.getenv('APP_SETTINGS')))
