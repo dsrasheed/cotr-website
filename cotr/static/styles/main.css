@@ -395,7 +395,7 @@ h2.section-title {
     padding: 40px;
     background-color: blue;
 }
-.payment-form {
+#payment-form {
 	max-width: 600px;
 	margin: auto;
 }

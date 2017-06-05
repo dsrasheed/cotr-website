@@ -127,12 +127,12 @@
 <section id="tickets">
 	<div class="section-content">
 		<h2 class="section-title">Get Tickets</h2>
-		<form class="payment-form section-space" action="" method="post">
+		<form id="payment-form" class="section-space" action="{{ url_for('visitors.buy') }}" method="post">
 			<div class="form-input-cnt">
 				<label for="email-quantity">Email and Quantity</label>
 				<div id="email-quantity" class="form-input row">
 					<input id="email-element" name="email" placeholder="Email Address" 
-					type="email" />
+					type="email"/>
 					<input id="quantity-element" name="quantity" placeholder="1-20" 
 					type="number" min="1" max="20"/>
 				</div>

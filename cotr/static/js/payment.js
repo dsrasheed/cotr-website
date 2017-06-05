@@ -47,6 +47,47 @@
         this.placeholder = !this.value.length ?  
             this.getAttribute('placeholder') :
             '';
+    });
+
+    function requiredFieldFilled(inputId) {
+        var input = document.getElementById(inputId);
+        var root = inputId.split('-')[0];
+        var errorId = root + '-error';
+        var errorElem = document.getElementById(errorId);
+
+        if (!String(input.value).length) {
+            errorElem.textContent = root.capitalize() + ' is required.';
+            return false;
+        } else {
+            errorElem.textContent = '';
+            return true;
+        }
+    }
+
+    const payForm = document.getElementById('payment-form');
+    payForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+            
+        if (!requiredFieldFilled('email-element') ||
+            !requiredFieldFilled('quantity-element'))
+            return;
+
+        stripe.createToken(card).then(function(result) {
+            if (result.error)
+                cardError.textContent = result.error.message;
+            else
+                stripeTokenHandler(result.token);
+        });
+
+        function stripeTokenHandler(token) {
+            var tokenInput = document.createElement('input');
+            tokenInput.setAttribute('type','hidden');
+            tokenInput.setAttribute('name', 'stripeToken');
+            tokenInput.setAttribute('value', token);
+
+            payForm.appendChild(tokenInput);
+            payForm.submit();
+        }
     });   
 })();
 
