@@ -83,9 +83,6 @@ li.menu-element:after {
 li.menu-element:hover:after {
     height: 3px;
 }
-.payp-form {
-    display: table;
-}
 .btn {
     font-family: "Lato";
     font-weight: 700;
@@ -96,6 +93,7 @@ li.menu-element:hover:after {
     color: mediumpurple;
     background-color: transparent;
     border: solid 3px mediumpurple;
+    border-radius: 4px;
     transition: color 0.5s, background-color 0.5s;
 }
 .btn:hover {
@@ -132,7 +130,9 @@ header {
 }
 #subtitle {
     width: 70%;
-    margin: 20px auto 40px auto;
+    margin: 0 auto;
+    padding-top: 20px;
+    padding-bottom: 40px;
     font-family: "Lato";
     font-weight: 300;
     font-size: 30px;
@@ -140,8 +140,9 @@ header {
     color: white;
     text-align: center;
 }
-.title-form {
-    margin: auto;
+#title-btn {
+	display: block;
+	margin: auto;
 }
 .triangle {
     z-index: 2;
@@ -251,21 +252,20 @@ h2.section-title {
     text-align: center;
     text-transform: uppercase;
 }
+.section-space {
+	margin-top: 40px;
+}
 .about-info {
     font-family: "Lato";
     font-size: 20px;
     line-height: 20px;
     color: gray;
-    margin-top: 40px;
     text-align: center;
 }
 .flex-content {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-}
-.clock, .schedule-slide {
-    margin-top: 5%;
 }
 .clock {
     width: 400px;
@@ -392,7 +392,80 @@ h2.section-title {
 .schedule-slide {
     width: 700px;
     height: 350px;
+    padding: 40px;
     background-color: blue;
+}
+.payment-form {
+	max-width: 600px;
+	margin: auto;
+}
+label {
+	font-family: "Lato";
+	font-size: 18px;
+	color: #32325d;
+}
+input[type="email"], input[type="number"], .form-error {
+	color: #32325d;
+	line-height: 24px;
+	letter-spacing: 0.5px;
+	font-family: "Lato", sans-serif;
+	font-smooth: antialiased;
+	font-size: 18px;
+	outline: none;
+}
+input[type="email"] {
+	flex-grow: 1;
+}
+input[type="email"]::placeholder {
+	color: #aab7c4;
+}
+.StripeElement, input[type="email"], input[type="number"] {
+  background-color: white;
+  padding: 10px 14px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  box-shadow: 0 1px 3px 0 #e6ebf1;
+  -webkit-transition: box-shadow 150ms ease;
+  transition: box-shadow 150ms ease;
+}
+.StripeElement--focus, input[type="email"]:focus, input[type="number"] {
+  box-shadow: 0 1px 3px 0 #cfd7df;
+}
+.StripeElement--invalid, input[type="email"]:invalid, input[type="number"]:invalid {
+  border-color: #fa755a;
+}
+.StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;
+}
+.form-input-cnt {
+	margin-top: 20px;
+}
+.form-input, .form-error {
+	display: block;
+	margin-top: 10px;
+}
+.form-submit {
+	margin: auto;
+	font-size: 18px;
+}
+.row {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.row > input{
+	display: block;
+}
+input[type="number"] {
+	width: 100px;
+	margin-left: 50px;
+}
+input[type="number"]::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+}
+.form-error {
+	font-size: 14px;
+	color: #fa755a;
 }
 /************
 MEDIA QUERIES
@@ -403,9 +476,6 @@ MEDIA QUERIES
 	}
 }
 @media screen and (max-width: 1549px) {
-    .nav-form {
-        display: none;
-    }
     header {
         min-height: 900px;
     }
