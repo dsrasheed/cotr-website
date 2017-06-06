@@ -25,3 +25,4 @@ def create_app(config_object):
 app = create_app('config.{}'.format(os.getenv('APP_SETTINGS')))
 
 from cotr.ctx import *
+
