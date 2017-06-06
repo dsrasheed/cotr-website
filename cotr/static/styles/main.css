@@ -141,8 +141,8 @@ header {
     text-align: center;
 }
 #title-btn {
-	display: block;
-	margin: auto;
+    display: block;
+    margin: auto;
 }
 .triangle {
     z-index: 2;
@@ -253,7 +253,7 @@ h2.section-title {
     text-transform: uppercase;
 }
 .section-space {
-	margin-top: 40px;
+    margin-top: 40px;
 }
 .about-info {
     font-family: "Lato";
@@ -396,28 +396,28 @@ h2.section-title {
     background-color: blue;
 }
 #payment-form {
-	max-width: 600px;
-	margin: auto;
+    max-width: 600px;
+    margin: auto;
 }
 label {
-	font-family: "Lato";
-	font-size: 18px;
-	color: #32325d;
+    font-family: "Lato";
+    font-size: 18px;
+    color: #32325d;
 }
 input[type="email"], input[type="number"], .form-error {
-	color: #32325d;
-	line-height: 24px;
-	letter-spacing: 0.5px;
-	font-family: "Lato", sans-serif;
-	font-smooth: antialiased;
-	font-size: 18px;
-	outline: none;
+    color: #32325d;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+    font-family: "Lato", sans-serif;
+    font-smooth: antialiased;
+    font-size: 18px;
+    outline: none;
 }
 input[type="email"] {
-	flex-grow: 1;
+    flex-grow: 1;
 }
 input[type="email"]::placeholder {
-	color: #aab7c4;
+    color: #aab7c4;
 }
 .StripeElement, input[type="email"], input[type="number"] {
   background-color: white;
@@ -438,42 +438,42 @@ input[type="email"]::placeholder {
   background-color: #fefde5 !important;
 }
 .form-input-cnt {
-	margin-top: 20px;
+    margin-top: 20px;
 }
 .form-input, .form-error {
-	display: block;
-	margin-top: 10px;
+    display: block;
+    margin-top: 10px;
 }
 .form-submit {
-	margin: auto;
-	font-size: 18px;
+    margin: auto;
+    font-size: 18px;
 }
 .row {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 .row > input{
-	display: block;
+    display: block;
 }
 input[type="number"] {
-	width: 100px;
-	margin-left: 50px;
+    width: 100px;
+    margin-left: 50px;
 }
 input[type="number"]::-webkit-inner-spin-button {
-	-webkit-appearance: none;
+    -webkit-appearance: none;
 }
 .form-error {
-	font-size: 14px;
-	color: #fa755a;
+    font-size: 14px;
+    color: #fa755a;
 }
 /************
 MEDIA QUERIES
 ************/
 @media screen and (max-width: 2030px) {
-	#title {
-		font-size: 60px;
-	}
+    #title {
+        font-size: 60px;
+    }
 }
 @media screen and (max-width: 1549px) {
     header {
@@ -502,7 +502,7 @@ MEDIA QUERIES
         max-width: 90%;
     }
     .section-content {
-    	width: 90%;
+        width: 90%;
     }
     ul.menu {
         display: none;
