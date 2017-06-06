@@ -3,11 +3,15 @@ import os
 class Config(object):
     DEBUG =  False
     TESTING = False
+    SECRET_KEY = os.getenv('SECRET_KEY')
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+    SQLALCHEMY_ECHO = True
     SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URI')
+    STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
 
 class Development(Config):
     DEBUG = True
-    SECRET_KEY = 'Xb\xfc\xd7\xcbQE\x01D@\r\xd4\xb5N4\xa5.H\xe3\xfa\x1b7T-'
 
 class Production(Config):
-    DEBUG = False
+    pass
+
