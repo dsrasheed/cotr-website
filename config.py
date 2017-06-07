@@ -5,7 +5,6 @@ class Config(object):
     TESTING = False
     SECRET_KEY = os.getenv('SECRET_KEY')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    SQLALCHEMY_ECHO = True
     SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL')
     STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
 
