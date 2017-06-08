@@ -70,7 +70,8 @@
 
         function stripeTokenHandler(token) {
             var tokenInput = document.getElementById('stripeToken');
-            tokenInput.setAttribute('value', token)
+            console.log(token);
+            tokenInput.setAttribute('value', token.id)
 
             ticketForm.submit();
         }

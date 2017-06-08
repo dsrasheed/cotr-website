@@ -26,7 +26,7 @@ class Visitor(db.Model):
 
 class Ticket(db.Model):
 
-    PRICE = 5.00
+    PRICE = 500
 
     id = db.Column(db.Integer, primary_key=True)
     barcode = db.Column(db.String(13), unique=True)

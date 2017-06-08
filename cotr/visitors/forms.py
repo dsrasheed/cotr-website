@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, IntegerField, HiddenField
-from wtforms.validators import Email, Length, NumberRange, Required, StopValidation
+from wtforms.validators import Email, Length, NumberRange, Required, ValidationError
 import stripe
 
 from .models import Ticket
@@ -23,7 +23,7 @@ def validate_token_with_charge(form, field):
     except stripe.error.StripeError as e:
         body = e.json_body
         err = body['error']
-        raise StopValidation(err['message'])
+        raise ValidationError(err['message'])
         
 class TicketForm(FlaskForm):
 

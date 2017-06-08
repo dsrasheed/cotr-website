@@ -19,7 +19,6 @@ def create_app(config_object):
     db.init_app(app)
     bcrypt.init_app(app)
     stripe.api_key = app.config['STRIPE_SECRET_KEY']
-    print(stripe.api_key)
 
     # Register blueprints
     app.register_blueprint(home_blueprint)

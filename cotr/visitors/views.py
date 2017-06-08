@@ -3,6 +3,6 @@ import stripe
 
 from . import visitors_blueprint
 
-@visitors_blueprint.route("/buy/", methods=["POST"])
+@visitors_blueprint.route('/buy/', methods=['POST'])
 def buy():
-    return "Working"   
+    return 'Working'

@@ -1,4 +1,4 @@
-from flask import request, redirect, render_template
+from flask import request, redirect, render_template, url_for
 
 from . import home_blueprint
 from cotr.visitors.forms import TicketForm
@@ -18,7 +18,7 @@ def index():
     if request.method == 'POST':
         # Get the name of the form submitted
         form_name = request.args.get('f')
-        
+
         # Get the class of the form that represents the data submitted
         form_cls = index_forms.get(form_name)['form_cls']
         
