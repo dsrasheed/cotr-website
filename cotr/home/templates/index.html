@@ -127,22 +127,31 @@
 <section id="tickets">
     <div class="section-content">
         <h2 class="section-title">Get Tickets</h2>
-        <form id="payment-form" class="section-space" action="{{ url_for('visitors.buy') }}" method="post">
-            <div class="form-input-cnt">
-                <label for="email-quantity">Email and Quantity</label>
-                <div id="email-quantity" class="form-input row">
-                    <input id="email-element" name="email" placeholder="Email Address" 
-                    type="email"/>
-                    <input id="quantity-element" name="quantity" placeholder="1-20" 
-                    type="number" min="1" max="20"/>
+        <form id="ticket-form" class="section-space" action="{{ url_for('home.index', f='ticket') }}" method="post">
+            <div class="input-container row">
+                <div id="email-container">
+                    {{ ticket.email.label }}
+                    {{ ticket.email(class="form-input", placeholder="Email Address") }}
                 </div>
-                <div class="form-error" id="email-error"></div>
-                <div class="form-error" id="quantity-error"></div>
+                <div id="quantity-container">
+                    {{ ticket.quantity.label }}
+                    {{ ticket.quantity(class="form-input", placeholder="1-20") }}
+                </div>
             </div>
-            <div class="form-input-cnt">
-                <label for="card-element">Enter Credit or Debit Card</label>
-                <div class="form-input" id="card-element"></div>
+            {% for error in ticket.email.errors %}
+                <div class="form-error">{{ error }}</div>
+            {% endfor %}
+            {% for error in ticket.quantity.errors %}
+                <div class="form-error">{{ error }}</div>
+            {% endfor %}
+            <div class="input-container">
+                <label for="card">Enter Credit or Debit Card</label>
+                <div class="form-input" id="card"></div>
                 <div class="form-error" id="card-error"></div>
+                {{ ticket.stripeToken }}
+                {% for error in ticket.stripeToken.errors %}
+                    <div class="form-error">{{ error }}</div>
+                {% endfor %}
             </div>
             <button class="btn form-input form-submit" type="submit">Purchase</button>
         </form>

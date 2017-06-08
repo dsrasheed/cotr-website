@@ -22,7 +22,7 @@
     };
 
     const card = elements.create('card', {style: style});
-    card.mount('#card-element');
+    card.mount('#card');
 
     const cardError = document.getElementById('card-error');
     card.addEventListener('change', function(e) {
@@ -32,7 +32,7 @@
             cardError.textContent = '';
     });
 
-    const quantity = document.getElementById('quantity-element');
+    const quantity = document.getElementById('quantity');
     quantity.addEventListener('keydown', function(e) {
         var code = e.keyCode;
         if (code === 8 || code === 46)
@@ -49,27 +49,16 @@
             '';
     });
 
-    function requiredFieldFilled(inputId) {
-        var input = document.getElementById(inputId);
-        var root = inputId.split('-')[0];
-        var errorId = root + '-error';
-        var errorElem = document.getElementById(errorId);
-
-        if (!String(input.value).length) {
-            errorElem.textContent = root.capitalize() + ' is required.';
-            return false;
-        } else {
-            errorElem.textContent = '';
-            return true;
-        }
+    function isFieldFilled(inputId) {
+        return true;   
     }
 
-    const payForm = document.getElementById('payment-form');
-    payForm.addEventListener('submit', function(e) {
+    const ticketForm = document.getElementById('ticket-form');
+    ticketForm.addEventListener('submit', function(e) {
         e.preventDefault();
-            
-        if (!requiredFieldFilled('email-element') ||
-            !requiredFieldFilled('quantity-element'))
+
+        if (!isFieldFilled('email') ||
+            !isFieldFilled('quantity'))
             return;
 
         stripe.createToken(card).then(function(result) {
@@ -80,14 +69,10 @@
         });
 
         function stripeTokenHandler(token) {
-            var tokenInput = document.createElement('input');
-            tokenInput.setAttribute('type','hidden');
-            tokenInput.setAttribute('name', 'stripeToken');
-            tokenInput.setAttribute('value', token);
+            var tokenInput = document.getElementById('stripeToken');
+            tokenInput.setAttribute('value', token)
 
-            payForm.appendChild(tokenInput);
-            payForm.submit();
+            ticketForm.submit();
         }
     });   
 })();
-

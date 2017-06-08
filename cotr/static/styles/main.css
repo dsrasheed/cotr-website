@@ -395,16 +395,31 @@ h2.section-title {
     padding: 40px;
     background-color: blue;
 }
-#payment-form {
+#ticket-form {
     max-width: 600px;
     margin: auto;
+}
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#email-container {
+    flex-grow: 1;
+}
+#quantity-container {
+    max-width: 100px;
+    margin-left: 50px;
+}
+#email, #quantity {
+    width: 100%;
 }
 label {
     font-family: "Lato";
     font-size: 18px;
     color: #32325d;
 }
-input[type="email"], input[type="number"], .form-error {
+input[type="text"], .form-error {
     color: #32325d;
     line-height: 24px;
     letter-spacing: 0.5px;
@@ -413,31 +428,28 @@ input[type="email"], input[type="number"], .form-error {
     font-size: 18px;
     outline: none;
 }
-input[type="email"] {
-    flex-grow: 1;
-}
-input[type="email"]::placeholder {
+input[type="text"]::placeholder {
     color: #aab7c4;
 }
-.StripeElement, input[type="email"], input[type="number"] {
-  background-color: white;
-  padding: 10px 14px;
-  border-radius: 4px;
-  border: 1px solid transparent;
-  box-shadow: 0 1px 3px 0 #e6ebf1;
-  -webkit-transition: box-shadow 150ms ease;
-  transition: box-shadow 150ms ease;
+.StripeElement, input[type="text"] {
+    background-color: white;
+    padding: 10px 14px;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    box-shadow: 0 1px 3px 0 #e6ebf1;
+    -webkit-transition: box-shadow 150ms ease;
+    transition: box-shadow 150ms ease;
 }
-.StripeElement--focus, input[type="email"]:focus, input[type="number"] {
-  box-shadow: 0 1px 3px 0 #cfd7df;
+.StripeElement--focus, input[type="text"]:focus {
+    box-shadow: 0 1px 3px 0 #cfd7df;
 }
-.StripeElement--invalid, input[type="email"]:invalid, input[type="number"]:invalid {
-  border-color: #fa755a;
+.StripeElement--invalid, input[type="text"]:invalid {
+    border-color: #fa755a;
 }
 .StripeElement--webkit-autofill {
-  background-color: #fefde5 !important;
+    background-color: #fefde5 !important;
 }
-.form-input-cnt {
+.input-container {
     margin-top: 20px;
 }
 .form-input, .form-error {
@@ -447,21 +459,6 @@ input[type="email"]::placeholder {
 .form-submit {
     margin: auto;
     font-size: 18px;
-}
-.row {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-.row > input{
-    display: block;
-}
-input[type="number"] {
-    width: 100px;
-    margin-left: 50px;
-}
-input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
 }
 .form-error {
     font-size: 14px;
