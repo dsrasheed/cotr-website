@@ -13,13 +13,18 @@ class Visitor(db.Model):
     def __init__(self, email, token=None):
         self.email = email
         
-        token = token or self.get_token()
-        self.token = bcrypt.generate_password_hash(token).decode('ascii')
+        token = token or Visitor.get_token()
+        self.token = Visitor.hash_token(token)
     
+    @classmethod
     def get_token(self):
         characters = ascii_lowercase + ascii_uppercase + digits
         token = "".join([random.choice(characters) for x in range(25)])
         return token
+    
+    @classmethod
+    def hash_token(cls, token):
+        return bcrypt.generate_password_hash(token).decode('ascii')
 
     def __repr__(self):
         return "<Visitor %i: %s>" % (self.id, self.email)

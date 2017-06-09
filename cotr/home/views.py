@@ -1,4 +1,5 @@
-from flask import request, redirect, render_template, url_for
+from flask import request, redirect, render_template, url_for, session
+from werkzeug import ImmutableDict
 
 from . import home_blueprint
 from cotr.visitors.forms import TicketForm
@@ -10,6 +11,7 @@ index_forms = {
         'redirect': 'visitors.buy'
     }
 }
+index_forms = ImmutableDict(index_forms)
 
 @home_blueprint.route('/', methods=['GET','POST'])
 def index():
@@ -26,6 +28,9 @@ def index():
         if form_cls is not None:
             f = form_cls()
             if f.validate():
+                session['form_validated'] = form_name
+                session['form_data'] = f.data
+
                 url = url_for(index_forms.get(form_name)['redirect'])
                 return redirect(url)
 
