@@ -1,5 +1,5 @@
 from functools import wraps
-from flask import session
+from flask import session, abort
 
 def form_validation_required(form_name):
     """Add to views that process form data another view has validated. 
@@ -12,9 +12,10 @@ def form_validation_required(form_name):
     def decorator(func):
         @wraps(func)
         def inner(*args, **kwargs):
-            if session['form_validated'] != form_name:
+            form = session.get('validated_form')
+            if form is None or form != form_name:
                 abort(403)
-            session['form_validated'] = None
+            session['validated_form'] = None
             return func()
         return inner
     return decorator

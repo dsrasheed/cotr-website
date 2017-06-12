@@ -28,7 +28,7 @@ def index():
         if form_cls is not None:
             f = form_cls()
             if f.validate():
-                session['form_validated'] = form_name
+                session['validated_form'] = form_name
                 session['form_data'] = f.data
 
                 url = url_for(index_forms.get(form_name)['redirect'])

@@ -1,7 +1,5 @@
 from celery import Celery
 
-from cotr import app as cotr_app
-
 def make_celery(app):
     celery = Celery(app.import_name,
                     backend=app.config['CELERY_RESULT_BACKEND'],
@@ -16,4 +14,8 @@ def make_celery(app):
                 return TaskBase.__call__(self, *args, **kwargs)
     celery.Task = ContextTask
     return celery
-app = make_celery(cotr_app)
+
+if __name__ == "__main__":
+    from cotr import app as cotr_app
+    app = make_celery(cotr_app)
+

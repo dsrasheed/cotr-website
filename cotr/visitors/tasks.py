@@ -1,7 +1,6 @@
 from flask_mail import Message
 
-from cotr import mail
-from cotr.celery import app as celery
+from cotr import celery, mail
 
 @celery.task
 def send_mail(subject, recipients, content):
