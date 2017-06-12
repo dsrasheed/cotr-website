@@ -17,7 +17,7 @@ class Visitor(db.Model):
         self.token = Visitor.hash_token(token)
     
     @classmethod
-    def get_token(self):
+    def get_token(cls):
         characters = ascii_lowercase + ascii_uppercase + digits
         token = "".join([random.choice(characters) for x in range(25)])
         return token

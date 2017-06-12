@@ -15,3 +15,14 @@ def buy():
     
     token = Visitor.get_token()
     
+    # Send mail containing both email and token
+    # send_mail()
+    
+    # Create a visitor object with email and token
+    # The visitor object will hash the token.
+
+    # Loop and create multiple ticket objects.
+    
+    # commit the db session
+    
+    # Render a "success.html"
