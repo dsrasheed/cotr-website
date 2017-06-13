@@ -26,6 +26,9 @@ class Visitor(db.Model):
     def hash_token(cls, token):
         return bcrypt.generate_password_hash(token).decode('ascii')
 
+    def check_token(self, token):
+        return bcrypt.check_password_hash(self.token, token)
+
     def __repr__(self):
         return "<Visitor %i: %s>" % (self.id, self.email)
 

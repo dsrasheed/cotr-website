@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block styles %}
+   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+{% endblock %}
+
+{% block content %}
+<div class="success-container">
+    <p class="jumbo-text">Thank You!</p>
+    <i id="checkmark" class="fa fa-check"></i>
+    <p class="small-text">The link to print your tickets has been sent to your email</p>
+</div>
+<a id="home-link" href="{{ url_for('home.index') }}">Home</a>
+{% endblock %}

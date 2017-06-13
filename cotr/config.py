@@ -18,8 +18,7 @@ class Config(object):
 
 class Development(Config):
     DEBUG = True
-    SERVER_NAME = '0.0.0.0:5000'
 
 class Production(Config):
-    SERVER_NAME = 'cotr.herokuapp.com'
+    pass
 

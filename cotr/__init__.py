@@ -40,3 +40,8 @@ app = create_app('cotr.config.{}'.format(os.getenv('APP_SETTINGS')))
 
 from cotr.ctx import *
 from cotr.visitors.models import *
+
+from flask import render_template
+@app.route('/page/<template>')
+def page(template):
+    return render_template(template)
