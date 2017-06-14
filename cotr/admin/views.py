@@ -1,4 +1,5 @@
 from cotr.admin import admin_blueprint
+from cotr.admin.models import Staff
 
 @admin_blueprint.route('/login/', methods=['GET','POST'])
 def login():
