@@ -29,11 +29,14 @@ def create_app(config_object):
     
     from cotr.home import home_blueprint
     from cotr.visitors import visitors_blueprint
+    from cotr.admin import admin_blueprint
 
     # Register blueprints
     app.register_blueprint(home_blueprint)
     app.register_blueprint(visitors_blueprint,
                            url_prefix='/tickets')
+    app.register_blueprint(admin_blueprint,
+                           url_prefix='/admin')
 
     return app
 app = create_app('cotr.config.{}'.format(os.getenv('APP_SETTINGS')))
