@@ -3,7 +3,7 @@ import os
 from string import ascii_lowercase, ascii_uppercase, digits
 
 import barcode
-from flask import url_for
+from flask import url_for, current_app as app
 
 from cotr import db, bcrypt
 
@@ -61,7 +61,7 @@ class Ticket(db.Model):
         return url_for('static', filename='img/barcode/' + self.barcode + '.png')
 
     def _get_barcode_img_path(self, filename):
-        static_dir = '/Users/daniyaalrasheed/PythonStuff/flask/cotr-website/cotr/static/'
+        static_dir = app.config['STATIC_DIR']
         barcode_dir = os.path.join(static_dir, 'img', 'barcode')
         return os.path.join(barcode_dir, filename)
 

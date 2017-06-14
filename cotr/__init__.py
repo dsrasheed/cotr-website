@@ -26,8 +26,8 @@ def create_app(config_object):
     celery = make_celery(app)
     stripe.api_key = app.config['STRIPE_SECRET_KEY']
     
-    from cotr.home import home_blueprint
     from cotr.visitors import visitors_blueprint
+    from cotr.home import home_blueprint
     from cotr.admin import admin_blueprint
 
     # Register blueprints
