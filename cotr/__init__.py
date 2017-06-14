@@ -4,7 +4,6 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_mail import Mail
-from celery import Celery
 import stripe
 
 from cotr.celery import make_celery
@@ -42,5 +41,4 @@ def create_app(config_object):
 app = create_app('cotr.config.{}'.format(os.getenv('APP_SETTINGS')))
 
 from cotr.ctx import *
-from cotr.visitors.models import *
 
