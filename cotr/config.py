@@ -15,6 +15,7 @@ class Config(object):
     MAIL_DEFAULT_SENDER = MAIL_USERNAME
     CELERY_BROKER_URL = os.getenv('CELERY_BROKER_URL')
     CELERY_RESULT_BACKEND = os.getenv('CELERY_RESULT_BACKEND')
+    STATIC_DIR = os.path.abspath('static')
 
 class Development(Config):
     DEBUG = True

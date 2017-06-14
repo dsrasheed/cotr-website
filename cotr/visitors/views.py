@@ -40,6 +40,7 @@ def buy():
     # Loop and create multiple ticket objects.
     for x in range(quantity):
         t = Ticket(visitor=v)
+        t.generate_barcode_img()
         db.session.add(t)
     
     # commit the db session
@@ -54,9 +55,8 @@ def print():
     token = request.args.get('t')
 
     v = Visitor.query.filter_by(email=email).first()
-    if not v.check_token(token):
+    if not v or not v.check_token(token):
         abort(403)
     
     tickets = Ticket.query.filter_by(visitor=v).all()
-    return ", ".join([t.barcode for t in tickets])
-    
+    return render_template('print.html', tickets=tickets)

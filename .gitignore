@@ -12,3 +12,4 @@ testdb.py
 prototyping
 .env
 scripts/setup-env.sh
+*.png

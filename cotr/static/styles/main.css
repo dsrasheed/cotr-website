@@ -475,7 +475,7 @@ success.html
     transform: translateY(-50%);
     width: 100%;
 }
-p, i{
+.success-container > p, i { 
     display: block;
     margin: auto;
     padding: 0 20px 20px 20px;
@@ -514,6 +514,60 @@ p, i{
 }
 #home-link:hover:after {
     width: 100%;
+}
+/*********
+print.html
+*********/
+.print-container {
+    width: 100%;
+    padding: 40px;
+}
+#print-link {
+    display: inline-block;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    margin-bottom: 40px;
+    color: rgb(0, 180, 250);
+    cursor: pointer;
+}
+#print-link:after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: rgb(0, 180, 250);
+    transition: width 0.25s;
+}
+#print-link:hover:after {
+    width: 100%;
+}
+.ticket {
+    width: 100%;
+    max-width: 800px;
+    border: solid 2px lightgray;
+    border-radius: 5px;
+    padding: 40px; 
+    margin: 0 auto 20px auto;
+}
+.medium-text {
+    font-family: "Lato";
+    font-size: 50px;
+}
+.center-text {
+    text-align: center;
+}
+.ticket-header {
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 300;
+}
+.subheader {
+    color: rgb(0, 180, 250);
+}
+.ticket-date {
+    position: relative;
+    bottom: 0;
 }
 /************
 MEDIA QUERIES
@@ -587,5 +641,15 @@ MEDIA QUERIES
     }
     .jumbo-text, #checkmark {
         font-size: 40px;
+    }
+}
+@media print {
+    .print-container {
+        padding: 0;
+    }
+    #print-link {
+        display: none;
+    }
+    .ticket:nth-child(odd) {   
     }
 }

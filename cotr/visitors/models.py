@@ -1,5 +1,9 @@
 import random
+import os
 from string import ascii_lowercase, ascii_uppercase, digits
+
+import barcode
+from flask import url_for
 
 from cotr import db, bcrypt
 
@@ -45,8 +49,25 @@ class Ticket(db.Model):
         self.visitor = visitor
     
     def get_barcode(self):
-        barcode = "".join([random.choice(digits) for x in range(13)])
-        return barcode
+        code = "".join([random.choice(digits) for x in range(12)])
+
+        # barcode lib will calculate checksum on 12 digit code
+        ean = barcode.get('ean', code)
+        return ean.get_fullcode()
+        
+
+    def get_barcode_img_url(self):
+        return url_for('static', filename='img/barcode/' + self.barcode + '.png')
+
+    def _get_barcode_img_path(self, filename):
+        static_dir = '/Users/daniyaalrasheed/PythonStuff/flask/cotr-website/cotr/static/'
+        barcode_dir = os.path.join(static_dir, 'img', 'barcode')
+        return os.path.join(barcode_dir, filename)
+
+    def generate_barcode_img(self):
+        ean = barcode.get('ean', self.barcode, barcode.writer.ImageWriter())
+        filename = self.barcode
+        ean.save(self._get_barcode_img_path(filename))
 
     def __repr__(self):
         return "<Ticket %i: %s>" % (self.id, self.barcode)
