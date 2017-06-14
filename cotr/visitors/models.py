@@ -43,6 +43,7 @@ class Ticket(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     barcode = db.Column(db.String(13), unique=True)
     visitor_id = db.Column(db.Integer, db.ForeignKey('visitor.id'))
+    has_entered = db.Column(db.Boolean, default=False)
 
     def __init__(self, barcode=None, visitor=None):
         self.barcode = barcode or self.get_barcode()
