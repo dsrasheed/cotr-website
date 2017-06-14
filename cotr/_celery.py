@@ -15,7 +15,7 @@ def make_celery(app):
     celery.Task = ContextTask
     return celery
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     from cotr import app as cotr_app
     app = make_celery(cotr_app)
 

@@ -60,3 +60,4 @@ def print():
     
     tickets = Ticket.query.filter_by(visitor=v).all()
     return render_template('print.html', tickets=tickets)
+

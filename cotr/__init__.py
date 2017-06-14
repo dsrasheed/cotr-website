@@ -6,7 +6,7 @@ from flask_bcrypt import Bcrypt
 from flask_mail import Mail
 import stripe
 
-from cotr.celery import make_celery
+from cotr._celery import make_celery
 
 db = SQLAlchemy()
 bcrypt = Bcrypt()
