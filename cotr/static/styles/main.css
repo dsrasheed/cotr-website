@@ -42,10 +42,31 @@ nav {
     height: 100%;
     margin: 0 auto;
 }
+.logo {
+    display: block;
+    font-family: "Lato";
+    font-size: 35px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    float: left;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #e34b54;
+}
+.logo:before, .logo:after {
+    content: "";
+    display: block;
+    height: 3px;
+    background-color: #e34b54;
+}
+.logo:before { margin-left: 100%; width: 0; transition: margin-left 0.25s ease, width 0.25s ease; }
+.logo:after { width: 0; transition: width 0.25s ease; }
+.logo:hover:before { margin-left: 0; width: 100%; }
+.logo:hover:after { width: 100%; }
 ul.menu {
     position: relative;
     list-style-type: none;
-    display: inline-block;
     float: right;
     height: 100%;
 }
@@ -599,18 +620,16 @@ MEDIA QUERIES
         font-size: 80px;
     }
 }
+@media screen and (max-width: 1125px) {
+    .nav-container { display: none; }
+    .hamburger { display: block; }
+}
 @media screen and (max-width: 800px) {
-    .hamburger {
-        display: block;
-    }
     .title-cnt {
         max-width: 90%;
     }
     .section-content {
         width: 90%;
-    }
-    ul.menu {
-        display: none;
     }
     .lotus {
         min-width: 200px;
