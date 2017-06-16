@@ -536,6 +536,48 @@ success.html
 #home-link:hover:after {
     width: 100%;
 }
+footer {
+    width: 100%;
+    margin-top: 40px;
+    padding: 30px 0;
+    background-color: #f5f5f5;
+}
+.copyright {
+    font-family: "Lato";
+    font-size: 1em;
+    font-weight: 300;
+    width: 90%;
+    margin: auto;
+    text-align: center;
+}
+.social-media-list {
+    list-style-type: none;
+    display: table;
+    margin: 10px auto;
+}
+.social-elem {
+    display: inline-block;
+    margin: 0 5px;
+}
+.social-link {
+    display: block;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    box-shadow: 0 1px 0 0 #e6ebf1;
+    background-color: white;
+    transition: box-shadow 0.25s;
+}
+.social-link:hover {
+    box-shadow: 0 1px 0 0 #cfd7df;
+}
+.social-link > i {
+    font-size: 25px;   
+    padding: 12.5px;
+}
+#home-social-link > .social-link > i { color: #e34b54; }
+#facebook-social-link > .social-link > i { color: #3b5998; }
 /*********
 print.html
 *********/
