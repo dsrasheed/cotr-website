@@ -78,11 +78,11 @@ li.menu-element {
     position: relative;
 }
 a {
-    font-family: "Lato";
-    font-size: 20px;
     text-decoration: none;
 }
 a.menu-link {
+    font-family: "Lato";
+    font-size: 20px;
     display: block;
     position: relative;
     top: 50%;
@@ -261,7 +261,10 @@ header {
 }
 section {
     width: 100%;
-    padding-top: 5%;
+    padding: 40px 0;
+}
+.section-space {
+    margin-top: 40px;
 }
 .section-content {
     width: 60%;
@@ -275,15 +278,31 @@ h2.section-title {
     text-align: center;
     text-transform: uppercase;
 }
-.section-space {
-    margin-top: 40px;
-}
 .about-info {
     font-family: "Lato";
-    font-size: 20px;
-    line-height: 20px;
+    font-size: 1em;
+    line-height: 1.5em;
     color: gray;
     text-align: center;
+}
+.intext-link {
+    font-size: 1em;
+    color: #3748ab;
+    position: relative;
+}
+.intext-link:after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    height: 1px;
+    width: 0;
+    background-color: #3748ab;
+    transition: width 0.25s;
+}
+.intext-link:hover:after {
+    width: 100%;
 }
 .flex-content {
     display: flex;
@@ -538,8 +557,7 @@ success.html
 }
 footer {
     width: 100%;
-    margin-top: 40px;
-    padding: 30px 0;
+    padding: 30px;
     background-color: #f5f5f5;
 }
 .copyright {
