@@ -18,6 +18,18 @@ nav {
     box-shadow: 2px 0 10px rgba(0,0,0,0.6);
     transition: height 0.3s, background-color 0.3s, color 0.3s;
 }
+nav.scrolled {
+    background-color: white;
+    border-bottom: none;
+    height: 80px;
+    color: black;
+}
+nav.scrolled .menu-element:after {
+    background-color: black;
+}
+nav.scrolled .ham-line {
+    background-color: black;
+}
 .hamburger {
     display: none;
     position: absolute;
@@ -688,6 +700,9 @@ MEDIA QUERIES
     }
 }
 @media screen and (max-width: 1125px) {
+    nav { height: 80px; }
+    nav.scrolled { height: 60px; }
+    .title-cnt { top: 110px; }
     .nav-container { display: none; }
     .hamburger { display: block; }
 }
@@ -711,6 +726,9 @@ MEDIA QUERIES
     }
 }
 @media screen and (max-width: 500px) {
+    header {
+        min-height: 700px;
+    }
     .triangle {
         border-bottom-width: 100px;
     }

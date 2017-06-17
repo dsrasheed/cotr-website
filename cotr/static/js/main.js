@@ -2,24 +2,17 @@
     'use strict';
 
     var nav = document.getElementsByTagName("nav")[0];
+    var menuElementAfters = document.querySelector(".menu-element:after")
     var scrolled = false;
 
     function onScroll() {
         var sTop = document.body.scrollTop;
         
         if (sTop > 0 && !scrolled) {
-            nav.style.height = "80px";
-            nav.style.backgroundColor = "white";
-            nav.style.color = "black";
-            nav.style.borderBottomWidth= "0";
-
+            nav.setAttribute("class", "scrolled");
             scrolled = true;
         } else if (sTop <= 0 && scrolled) {
-            nav.style.height = "130px";
-            nav.style.backgroundColor = "transparent";
-            nav.style.color = "white";
-            nav.style.borderBottomWidth = "1px";
-
+            nav.setAttribute("class", "");
             scrolled = false;
         }
     }
