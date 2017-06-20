@@ -111,8 +111,8 @@
 <section id="schedule">
     <div class="section-content">
         <h2 class="section-title">Schedule</h2>
-        <div class="flex-content section-space">
-            <div class="clock">
+        <div class="flex-content">
+            <div class="clock section-space">
                 <div class="square-content">
                     <div class="clock-bg"></div>
                     <div class="clock-rim">
@@ -135,15 +135,55 @@
                 </div>
             </div>
             
-            <div class="schedule-slide">
-                <div id="left-arrow" class="slide-arrow-cnt"></div>
-                <div class="slide-content">
-                    <h3 class="schedule-time"></h3>
-                    <p class="schedule-time-info"></p>
-                    <div class="slide-indicator">
+            <div class="schedule-slide section-space no-responsive">
+                <div unselectable="on" class="responsive-angle-container clearfix noselect">
+                    <div class="responsive-left-angle">
+                        <div class="left-angle"><i class="fa fa-angle-left"></i></div>
+                    </div>
+                    <div class="responsive-right-angle">
+                        <div class="right-angle"><i class="fa fa-angle-right"></i></div>
                     </div>
                 </div>
-                <div id="right-arrow" class="schedule-arrow-cnt"></div>
+                <div class="slide-container row">
+                    <div unselectable="on" class="left-angle-container noselect">
+                        <div class="left-angle"><i class="fa fa-angle-left"></i></div>
+                    </div>
+                    <div class="slide-content">
+                        <div id="schedule-data" style="display: none;"
+                            time05:00="Free Time! Eat food or have fun at one of the
+                            activity stands."
+                            time05:30="Ken Berry, a man passionate towards the goal of
+                            bringing the world towards more unity, will speak about his
+                            thoughts on the topic of racial diversity."
+                            time05:50="Lane Linder, a man passionate towards the goal
+                            of bringing the world towards more unity, will speak about
+                            his thoughts on the topic of racial diversity."
+                            time06:10="A speaker shall speak."
+                            time06:30="The Steel City Academy Dance team will perform!"
+                            time06:45="Break time! Feel free to eat food at one of the
+                            food trucks or have fun at some of the activity stands."
+                            time07:00="Our first band will perform, Leave it to Chance."
+                            time07:30="Break time! Feel free to eat food at one of the
+                            food trucks or have fun at some of the activity stands."
+                            time07:45="The band Kill Twins will perform. The Kill Twins
+                            are a local band out of Crown Point High School!"
+                            time08:15="Break time! Feel free to eat food at one of the
+                            food trucks or have fun at some of the activity stands."
+                            time08:30="Our final band, Pulsebeat, will play. This part
+                            of the event may get messy! :)"
+                            time10:00="The Colors of the Region Event ends :(">
+                        </div>
+                        <div class="schedule-time-container"></div>
+                        <div class="schedule-time-info-container"></div>
+                        <div class="slide-indicator-container">
+                            <ul class="slide-indicators">
+                            </ul>
+                        </div>
+                    </div>
+                    <div unselectable="on" class="right-angle-container noselect">
+                        <div class="right-angle"><i class="fa fa-angle-right"></i></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -204,4 +244,5 @@
 <script src="https://js.stripe.com/v3/"></script>
 <script src={{ javascript('main') }}></script>
 <script src={{ javascript('payment') }}></script>
+<script src={{ javascript('schedule') }}></script>
 {% endblock %}

@@ -33,17 +33,16 @@ nav.scrolled .ham-line {
 .hamburger {
     display: none;
     position: absolute;
-    width: 45px;
-    height: 35px;
     top: 50%;
     right: 30px;
     transform: translateY(-50%);
+    z-index: 12;
 }
 .ham-line {
-    width: 100%;
-    height: 5px;
+    width: 33px;
+    height: 2px;
+    border-radius: 1px;
     background-color: white;
-    border-radius: 50px;
     margin-bottom: 10px;
 }
 .ham-line:last-child {
@@ -137,6 +136,7 @@ li.menu-element:hover:after {
     box-shadow: 0 4px 0 0 #cfd7df;
 }
 .btn:active { box-shadow: none; top: 4px; }
+.btn:focus { outline: none; }
 header {
     width: 100%;
     min-height: 1000px;
@@ -349,7 +349,7 @@ h2.section-title {
     position: absolute;
     top: -2.5%;
     left: -2.5%;
-    background-color: #c7c7c7;
+    background-color: #cfd7df;
 }
 .clock-rim {
     width: 100%;
@@ -433,6 +433,7 @@ h2.section-title {
     transform-origin: 50% 100%;
     background-color: black;
     border-radius: 50px;
+    transition: transform;
 }
 .minute-hand {
     position: absolute;
@@ -443,13 +444,135 @@ h2.section-title {
     transform-origin: 50% 100%;
     background-color: black;
     border-radius: 50px;
-    transform: rotate(30deg);
+    transition: transform;
 }
 .schedule-slide {
-    width: 700px;
+    min-width: 288px;
+    height: 400px;
+    flex-grow: 1;
+}
+.responsive-angle-container {
+    width: 100%;
+    height: 50px;
+    background-color: #f5f5f5;
+}
+.clearfix:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 0;
+    clear: both;
+}
+.noselect {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.responsive-left-angle, .responsive-right-angle {
+    float: left;
+    width: 50%;
+    height: 100%;
+}
+.left-angle, .right-angle {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 0 2px 0 0 #e6ebf1;
+}
+.left-angle:hover, .right-angle:hover {
+    box-shadow: 0 2px 0 0 #cfd7df;
+}
+.left-angle:active, .right-angle:active {
+    top: 51%;
+    box-shadow: none;
+    outline: none;
+}
+.left-angle > i, .right-angle > i {
+    font-size: 20px;
+    padding: 5px;
+    color: #00fab4;
+}
+.slide-container {
     height: 350px;
-    padding: 40px;
-    background-color: blue;
+}
+.left-angle-container, .right-angle-container {
+    display: none;
+    width: 50px;
+    height: 100%;
+    background-color: #f5f5f5;
+    z-index: 8;
+}
+.left-angle-container { border-radius: 5px 0 0 5px; }
+.right-angle-container { border-radius: 0 5px 5px 0; }
+.slide-content {
+    height: 100%;
+    flex-grow: 1;
+    border-width: 0 2px 2px 2px;
+    border-style: solid;
+    border-color: #f5f5f5;
+    overflow: hidden;
+}
+.schedule-time-container {
+    width: 100%;
+    height: 100px;
+    position: relative;
+}
+.schedule-time {
+    font-size: 100px;
+    color: #00b4fa;
+    line-height: 100px;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: left 0.3s;
+}
+.schedule-time-info-container {
+    width: 100%;
+    height: 220px;
+    position: relative;
+}
+.schedule-time-info {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    color: gray;
+    text-align: center;
+    font-size: 30px;
+    padding: 20px;
+    transition: left 0.3s;
+}
+.schedule-time, .schedule-time-info {
+    font-family: "Lato";
+    font-weight: 300;
+}
+.slide-indicator-container {
+    width: 100%;
+    height: 26px;
+}
+.schedule-slide.no-responsive > .responsive-angle-container {
+    display: none;
+}
+.schedule-slide.no-responsive > .slide-container {
+    height: 400px;
+ }
+.schedule-slide.no-responsive .left-angle-container,
+.schedule-slide.no-responsive .right-angle-container {
+    display: block;
+}
+.schedule-slide.no-responsive .slide-content {
+    border-width: 2px 0 2px 0;
+    border-style: solid;
+    border-color: #f5f5f5;
+}
+.schedule-slide.no-responsive .schedule-time-info-container {
+    height: 270px;
 }
 #tickets {
     background-color: #f5f5f5;
@@ -727,7 +850,7 @@ MEDIA QUERIES
 }
 @media screen and (max-width: 500px) {
     header {
-        min-height: 700px;
+        min-height: 850px;
     }
     .triangle {
         border-bottom-width: 100px;

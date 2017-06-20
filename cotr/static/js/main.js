@@ -2,7 +2,6 @@
     'use strict';
 
     var nav = document.getElementsByTagName("nav")[0];
-    var menuElementAfters = document.querySelector(".menu-element:after")
     var scrolled = false;
 
     function onScroll() {
@@ -16,7 +15,7 @@
             scrolled = false;
         }
     }
-    
+
     var triLeft = document.getElementsByClassName("tri-left")[0];
     var triRight = document.getElementsByClassName("tri-right")[0];
     
@@ -25,13 +24,11 @@
         var height = document.body.clientHeight;
         
         var triWidth = Math.floor(width / 2) + "px";
-        console.log(triWidth);          
         triLeft.style.borderRightWidth = triWidth;
         triRight.style.borderLeftWidth = triWidth;
     }
 
     addEventListener("scroll", onScroll);
-    
     resizeTriangles();
     addEventListener("resize", resizeTriangles);
 
@@ -39,5 +36,4 @@
     String.prototype.capitalize = function() {
         return this.charAt(0).toUpperCase() + this.slice(1);
     }
-    
 })();
