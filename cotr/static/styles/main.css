@@ -284,14 +284,29 @@ section {
     width: 60%;
     margin: auto;
 }
-h2.section-title {
+.section-title {
     position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translate(-50%);
     font-family: "Lato";
     font-size: 40px;
     letter-spacing: 1.5px;
     text-align: center;
     text-transform: uppercase;
 }
+.section-title:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+}
+#about .section-title:after { background: linear-gradient(90deg,#FF4E50,#F9D423); }
+#about .section-title { color: #FF4E50; }
+#schedule .section-title:after { background: linear-gradient(90deg,#93F9B9,#1D976C); }
+#schedule .section-title { color: #93F9B9; }
+#tickets .section-title:after { background: linear-gradient(90deg,#00c6ff,#0072ff); }
+#tickets .section-title { color: #00c6ff; }
 .about-info {
     font-family: "Lato";
     font-size: 1em;
@@ -301,7 +316,7 @@ h2.section-title {
 }
 .intext-link {
     font-size: 1em;
-    color: #3748ab;
+    color: #FF4E50;
     position: relative;
 }
 .intext-link:after {
@@ -312,7 +327,7 @@ h2.section-title {
     left: 0;
     height: 1px;
     width: 0;
-    background-color: #3748ab;
+    background-color: #FF4E50;
     transition: width 0.25s;
 }
 .intext-link:hover:after {
@@ -496,7 +511,7 @@ h2.section-title {
 .left-angle > i, .right-angle > i {
     font-size: 20px;
     padding: 5px;
-    color: #00fab4;
+    color: #93F9B9;
 }
 .slide-container {
     height: 350px;
@@ -522,10 +537,12 @@ h2.section-title {
     width: 100%;
     height: 100px;
     position: relative;
+    border-bottom: dashed 2px #f5f5f5;
 }
 .schedule-time {
     font-size: 100px;
-    color: #00b4fa;
+    color: #93F9B9;
+    background-color: white;
     line-height: 100px;
     text-align: center;
     width: 100%;
@@ -543,9 +560,10 @@ h2.section-title {
     height: 100%;
     position: absolute;
     color: gray;
+    background-color: white;
     text-align: center;
-    font-size: 30px;
-    padding: 20px;
+    font-size: 1em;
+    padding: 40px 10%;
     transition: left 0.3s;
 }
 .schedule-time, .schedule-time-info {
@@ -577,7 +595,7 @@ h2.section-title {
 #tickets {
     background-color: #f5f5f5;
 }
-#ticket-form {
+#ticket-form{
     max-width: 600px;
     margin: auto;
 }

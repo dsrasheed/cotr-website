@@ -13,26 +13,8 @@
     };
     addEventListener('resize', scheduleResized.bind(schedule));
     scheduleResized.call(schedule);
-
-    // The event triggered when a css transition completes
-    // is browser dependent. This function returns the 
-    // appropriate event name for a css transition.
-    function whichTransitionEvent() {
-        var el = document.createElement('fakeelem');
-        var transitions = {
-            'transition': 'transitioned',
-            'OTransition': 'oTransitionEnd',
-            'MozTransition': 'transitionend',
-            'WebkitTransition': 'webkitTransitionEnd'
-        };
- 
-        for (let t in transitions) {
-            if (el.style[t] !== undefined)
-                return transitions[t];
-        }
-    }
-    const transitionEvent = whichTransitionEvent();
-
+    
+    // A module to control the animation of the slide widget
     function Slide() {
         var timeSlides = [];
         var infoSlides = [];
@@ -67,19 +49,31 @@
             var leftSlide  = slideList[0];
             var midSlide   = slideList[1];
             var rightSlide = slideList[2];
-            
+        
             var updatedSlideList = [];
             if (animDirection === 'right') {
                 rightSlide.innerHTML = newContent;
-                rightSlide.style.left = '0';
-                midSlide.style.left = '-100%';
-                leftSlide.style.left = '100%';
                 
+                // Don't want slides to slide on top of each other.
+                leftSlide.style.zIndex = '0';
+                midSlide.style.zIndex = '1';
+                rightSlide.style.zIndex = '1';
+              
+                // Animated sliding effect with a transition on left.
+                midSlide.style.left = '-100%';
+                rightSlide.style.left = '0';
+                leftSlide.style.left = '100%';
+
                 updatedSlideList.push(midSlide);
                 updatedSlideList.push(rightSlide);
                 updatedSlideList.push(leftSlide);
             } else {
                 leftSlide.innerHTML = newContent;
+
+                leftSlide.style.zIndex = '1';
+                midSlide.style.zIndex = '1';
+                rightSlide.style.zIndex = '0';
+
                 rightSlide.style.left = '-100%';
                 midSlide.style.left = '100%';
                 leftSlide.style.left = '0';
@@ -89,7 +83,9 @@
                 updatedSlideList.push(midSlide);
             }
 
-            slideList = updatedSlideList;
+            updatedSlideList.forEach(function(s, index) { 
+                slideList[index] = s; 
+            });
         }
 
         function animate(animDirection) {
@@ -106,7 +102,6 @@
             animate: animate
         };
     }
-    var slide = Slide();
     
     // A module to control the animation of the clock widget.
     function Clock(hourHand, minuteHand) {
@@ -154,11 +149,6 @@
             hourHand.style.transitionDuration = hDuration;
             minuteHand.style.transitionDuration = mDuration;
 
-            console.log("Hour Degrees: " + hHandDegrees);
-            console.log("Minute Degrees: " + mHandDegrees);
-            console.log("Hour Duration: " + hDuration);
-            console.log("Minute Duration: " + mDuration);
-            
             hCurrentRotation += hHandDegrees;
             mCurrentRotation += mHandDegrees;
             hourHand.style.transform = 'rotate(' + hCurrentRotation + 'deg)';
@@ -171,30 +161,40 @@
             animate: animate
         };
     }
-    var hourHand = document.getElementsByClassName('hour-hand')[0];
-    var minuteHand = document.getElementsByClassName('minute-hand')[0];
-    var clock = Clock(hourHand, minuteHand);
 
+    // Get the buttons used to interact with the slide.
     var leftButtons = document.getElementsByClassName('left-angle');
     var rightButtons = document.getElementsByClassName('right-angle');
-    // Convert HTMCollection to Array
+
+    // Convert HTMLCollection to array so it can be iterated over.
     leftButtons = [].slice.call(leftButtons);
     rightButtons = [].slice.call(rightButtons);
-
     var buttons = leftButtons.concat(rightButtons);
+    
     buttons.forEach(function(button) {
-        var type = button.classList.contains('left-angle') ? 'left' : 'right';
-        button.type = type;
+        var direction = button.classList.contains('left-angle') ? 'left' : 'right';
+        button.direction = direction;
         button.addEventListener('click', slideButtonClicked);
     });
     
+    // Data to display on schedule
     var scheduleData = document.getElementById('schedule-data').attributes;
     scheduleData = [].slice.call(scheduleData);
-    // Keep all attributes except for id and style
-    scheduleData = scheduleData.slice(2);
+    scheduleData = scheduleData.slice(2); // Keep all attributes except id and style
+
+    // Used to index an attribute on scheduleData
     var dataIndex = -1;
+
+    // Widgets
+    var hourHand = document.getElementsByClassName('hour-hand')[0];
+    var minuteHand = document.getElementsByClassName('minute-hand')[0];
+    var clock = Clock(hourHand, minuteHand);
+    var slide = Slide();
+
+    // When a user clicks on the buttons on the schedule slide, this
+    // updates the time and info associated with the time.
     function slideButtonClicked() {
-        var leftDirection = this.type === 'left';
+        var leftDirection = this.direction === 'left';
         dataIndex += leftDirection ? -1 : 1;
         if (dataIndex < 0)
             dataIndex = scheduleData.length - 1;
@@ -218,6 +218,8 @@
         slide.info = info;
 
         clock.animate();
-        slide.animate();
+        slide.animate(this.direction);
     }
+
+    buttons[2].click();
 })();
