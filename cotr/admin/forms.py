@@ -1,17 +1,17 @@
-from flask_wtforms import FlaskForm
+from flask_wtf import FlaskForm
 from wtforms import StringField, IntegerField
 from wtforms.validators import Length, NumberRange, Required
 
 class LoginForm(FlaskForm):
     
-    username = StringField(u'Username' validators=[
+    username = StringField(u'Username', validators=[
         Required(u'You cannot leave this field blank')
     ])
     password = StringField(u'Password', validators=[
         Required(u'You cannot leave this field blank')
     ])
 
-class TicketVerficationForm(FlaskForm):
+class TicketVerificationForm(FlaskForm):
     
     barcode = IntegerField(u'Barcode', validators=[
         Required(u'You cannot leave this field blank'),

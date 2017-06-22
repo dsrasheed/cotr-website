@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    const stripe = Stripe('pk_test_hES8oRfDor764zdzV0ecdhUX');
+    const stripe = Stripe('pk_live_OkudCaCShkC5BQ52FxRIrZej');
     const elements = stripe.elements();
     
     var style = {

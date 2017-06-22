@@ -10,6 +10,7 @@ testdb.py
 
 # Cotr
 prototyping
+staff.txt
 .env
 scripts/setup-env.sh
 *.png

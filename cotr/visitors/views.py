@@ -28,19 +28,21 @@ def buy():
     data = session['form_data']
     email = data['email']
     quantity = data['quantity']
+    
+    token = Visitor.get_token()
+    mail_ticket_print_url(email, token)
 
     returning_visitor = Visitor.query.filter_by(email=email).first()
     v = returning_visitor
     if returning_visitor is None:
-        token = Visitor.get_token()
-        mail_ticket_print_url(email, token)
         v = Visitor(email, token)
-        db.session.add(v)
+    
+    v.token = Visitor.hash_token(token)
+    db.session.add(v)
 
     # Loop and create multiple ticket objects.
     for x in range(quantity):
         t = Ticket(visitor=v)
-        t.generate_barcode_img()
         db.session.add(t)
     
     # commit the db session

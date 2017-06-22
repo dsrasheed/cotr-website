@@ -41,4 +41,4 @@ def create_app(config_object):
 app = create_app('cotr.config.{}'.format(os.getenv('APP_SETTINGS')))
 
 from cotr.ctx import *
-
+from cotr.admin.commands import *

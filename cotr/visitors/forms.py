@@ -14,16 +14,20 @@ def validate_token_with_charge(form, field):
     charge_token = field.data
     quantity = form.quantity.data
     try:
-        stripe.Charge.create(
+        charge = stripe.Charge.create(
             amount=Ticket.PRICE * quantity,
             currency='usd',
             description='Purchasing tickets',
             source=charge_token
         )
-    except stripe.error.StripeError as e:
-        body = e.json_body
-        err = body['error']
-        raise ValidationError(err['message'])
+        if not charge.paid:
+            raise Exception()
+    except Exception as e:
+        # body = e.json_body
+        # err = body['error']
+        # raise ValidationError(err['message'])
+        raise ValidationError('Something went wrong while \
+            processing your credit card information')
         
 class TicketForm(FlaskForm):
 

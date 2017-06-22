@@ -1,0 +1,12 @@
+<form action="{{ url_for('admin.login') }}" method="post">
+    {{ form.csrf_token }}
+    {{ form.username }}
+    {% for error in form.username.errors %}
+        <p>{{ error }}</p>
+    {% endfor %}
+    {{ form.password }}
+    {% for error in form.password.errors %}
+        <p>{{ error }}</p>
+    {% endfor %}
+    <button type="submit">Login</button>
+</form>

@@ -3,7 +3,7 @@ import os
 from string import ascii_lowercase, ascii_uppercase, digits
 
 import barcode
-from flask import url_for, current_app as app
+from flask import url_for
 
 from cotr import db, bcrypt
 
@@ -50,26 +50,21 @@ class Ticket(db.Model):
         self.visitor = visitor
     
     def get_barcode(self):
-        code = "".join([random.choice(digits) for x in range(12)])
+        while 1:
+            code = "".join([random.choice(digits) for x in range(12)])
 
-        # barcode lib will calculate checksum on 12 digit code
-        ean = barcode.get('ean', code)
-        return ean.get_fullcode()
+            # barcode lib will calculate checksum on 12 digit code
+            ean = barcode.get('ean', code)
+            fullcode = ean.get_fullcode()
+
+            if not Ticket.is_barcode_used(fullcode):
+                return fullcode
+
+    @classmethod
+    def is_barcode_used(cls, code):
+        t = cls.query.filter_by(barcode=code).first()
+        return t != None
         
-
-    def get_barcode_img_url(self):
-        return url_for('static', filename='img/barcode/' + self.barcode + '.png')
-
-    def _get_barcode_img_path(self, filename):
-        static_dir = app.config['STATIC_DIR']
-        barcode_dir = os.path.join(static_dir, 'img', 'barcode')
-        return os.path.join(barcode_dir, filename)
-
-    def generate_barcode_img(self):
-        ean = barcode.get('ean', self.barcode, barcode.writer.ImageWriter())
-        filename = self.barcode
-        ean.save(self._get_barcode_img_path(filename))
-
     def __repr__(self):
         return "<Ticket %i: %s>" % (self.id, self.barcode)
 

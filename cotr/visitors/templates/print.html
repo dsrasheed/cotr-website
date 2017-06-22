@@ -10,10 +10,10 @@
             <p class="ticket-header small-text subheader">One Admission</p>
             <div class="row">
                 <p class="ticket-date small-text">06/30/2017</p>
-                <div class="barcode-container">
-                    <img width="250px" class="barcode" src="{{ t.get_barcode_img_url() }}"/>
-                </div>
+                <p class="small-text">{{ t.barcode }}</p>
             </div>
+            <p class="small-text">Address: 68 Lafayette St, Valparaiso, IN 46383</p>
+            <p class="small-text">5:00 - 10:00pm</p>
         </div>
     {% endfor %}
 </div>
