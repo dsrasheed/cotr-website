@@ -6,6 +6,7 @@ class Config(object):
     SECRET_KEY = os.getenv('SECRET_KEY')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL')
+    STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY')
     STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
     MAIL_USERNAME = os.getenv('MAIL_USERNAME')
     MAIL_PASSWORD = os.getenv('MAIL_PASSWORD')
@@ -19,6 +20,8 @@ class Config(object):
 
 class Development(Config):
     DEBUG = True
+    STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_TEST_KEY')
+    STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_TEST_KEY')
 
 class Production(Config):
     pass

@@ -191,7 +191,7 @@
 <section id="tickets">
     <div class="section-content">
         <h2 class="section-title">Get Tickets</h2>
-        <form id="ticket-form" class="section-space" action="{{ url_for('home.index', f='ticket') }}" method="post">
+        <form id="ticket-form" class="section-space" action="{{ url_for('home.index', f='ticket') }}" method="post" stripe-key="{{ stripe_public_key }}">
             {{ ticket.csrf_token }}
             <div class="input-container row">
                 <div id="email-container">

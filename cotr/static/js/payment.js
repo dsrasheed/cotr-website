@@ -1,7 +1,9 @@
 (function() {
     'use strict';
 
-    const stripe = Stripe('pk_live_OkudCaCShkC5BQ52FxRIrZej');
+    const form  = document.querySelector('form');
+    const apiKey = form.attributes['stripe-key'].value;
+    const stripe = Stripe(apiKey);
     const elements = stripe.elements();
     
     var style = {

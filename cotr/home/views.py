@@ -15,7 +15,8 @@ index_forms = ImmutableDict(index_forms)
 
 @home_blueprint.route('/', methods=['GET','POST'])
 def index():
-    ctx = {}
+    from cotr import app
+    ctx = {'stripe_public_key': app.config['STRIPE_PUBLIC_KEY']}
     form_name = None
     if request.method == 'POST':
         # Get the name of the form submitted
